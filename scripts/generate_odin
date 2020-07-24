@@ -6,7 +6,7 @@ require_package_version <- function(name, version) {
   }
 }
 
-require_package_version("dust", "0.4.0")
+require_package_version("dust", "0.4.1")
 require_package_version("odin.dust", "0.0.8")
 
 odin.dust::odin_dust_package(here::here())
