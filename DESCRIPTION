@@ -37,7 +37,7 @@ LazyData: true
 Language: en-GB
 LinkingTo:
     cpp11,
-    dust
+    dust (>= 0.4.0)
 Suggests:
     testthat
 RoxygenNote: 7.1.0
