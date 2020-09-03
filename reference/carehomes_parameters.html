@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sircovid2</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.12</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.17</span>
       </span>
     </div>
 
@@ -137,7 +137,8 @@
   <span class='kw'>eps</span> <span class='kw'>=</span> <span class='fl'>0.1</span>,
   <span class='kw'>C_1</span> <span class='kw'>=</span> <span class='fl'>4e-05</span>,
   <span class='kw'>C_2</span> <span class='kw'>=</span> <span class='fl'>5e-04</span>,
-  <span class='kw'>exp_noise</span> <span class='kw'>=</span> <span class='fl'>1e+06</span>
+  <span class='kw'>exp_noise</span> <span class='kw'>=</span> <span class='fl'>1e+06</span>,
+  <span class='kw'>phi_pillar2</span> <span class='kw'>=</span> <span class='fl'>10</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -216,6 +217,10 @@ residents or workers</p></td>
 function - typically set to a large value so that noise is small
 but non-zero. If set to <code>Inf</code> then there is no noise in the
 observation process (not realistic but useful for testing).</p></td>
+    </tr>
+    <tr>
+      <th>phi_pillar2</th>
+      <td><p>Over/underreporting multiplier for pillar 2 tests</p></td>
     </tr>
     </table>
 
@@ -393,6 +398,9 @@ just before the model is run.</p>
 #&gt; 
 #&gt; $observation$k_new
 #&gt; [1] 2
+#&gt; 
+#&gt; $observation$phi_pillar2
+#&gt; [1] 10
 #&gt; 
 #&gt; $observation$exp_noise
 #&gt; [1] 1e+06
