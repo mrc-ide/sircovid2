@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sircovid2</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.17</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.18</span>
       </span>
     </div>
 
@@ -137,8 +137,10 @@
   <span class='kw'>eps</span> <span class='kw'>=</span> <span class='fl'>0.1</span>,
   <span class='kw'>C_1</span> <span class='kw'>=</span> <span class='fl'>4e-05</span>,
   <span class='kw'>C_2</span> <span class='kw'>=</span> <span class='fl'>5e-04</span>,
-  <span class='kw'>exp_noise</span> <span class='kw'>=</span> <span class='fl'>1e+06</span>,
-  <span class='kw'>phi_pillar2</span> <span class='kw'>=</span> <span class='fl'>10</span>
+  <span class='kw'>pillar2_specificity</span> <span class='kw'>=</span> <span class='fl'>0.99</span>,
+  <span class='kw'>pillar2_sensitivity</span> <span class='kw'>=</span> <span class='fl'>0.99</span>,
+  <span class='kw'>prop_noncovid_sympt</span> <span class='kw'>=</span> <span class='fl'>0.01</span>,
+  <span class='kw'>exp_noise</span> <span class='kw'>=</span> <span class='fl'>1e+06</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -212,15 +214,24 @@ residents or workers</p></td>
       <td><p>Contact rate between carehome residents</p></td>
     </tr>
     <tr>
+      <th>pillar2_specificity</th>
+      <td><p>Specificity of the Pillar 2 test</p></td>
+    </tr>
+    <tr>
+      <th>pillar2_sensitivity</th>
+      <td><p>Sensitivity of the Pillar 2 test</p></td>
+    </tr>
+    <tr>
+      <th>prop_noncovid_sympt</th>
+      <td><p>Proportion of population who do not have
+covid but have covid-like symptoms</p></td>
+    </tr>
+    <tr>
       <th>exp_noise</th>
       <td><p>Rate of exponential noise used in the compare
 function - typically set to a large value so that noise is small
 but non-zero. If set to <code>Inf</code> then there is no noise in the
 observation process (not realistic but useful for testing).</p></td>
-    </tr>
-    <tr>
-      <th>phi_pillar2</th>
-      <td><p>Over/underreporting multiplier for pillar 2 tests</p></td>
     </tr>
     </table>
 
@@ -359,6 +370,15 @@ just before the model is run.</p>
 #&gt; $p_specificity
 #&gt; [1] 0.9
 #&gt; 
+#&gt; $pillar2_specificity
+#&gt; [1] 0.99
+#&gt; 
+#&gt; $pillar2_sensitivity
+#&gt; [1] 0.99
+#&gt; 
+#&gt; $prop_noncovid_sympt
+#&gt; [1] 0.01
+#&gt; 
 #&gt; $observation
 #&gt; $observation$phi_ICU
 #&gt; [1] 1
@@ -399,8 +419,14 @@ just before the model is run.</p>
 #&gt; $observation$k_new
 #&gt; [1] 2
 #&gt; 
-#&gt; $observation$phi_pillar2
-#&gt; [1] 10
+#&gt; $observation$phi_pillar2_cases
+#&gt; [1] 1
+#&gt; 
+#&gt; $observation$k_pillar2_cases
+#&gt; [1] 2
+#&gt; 
+#&gt; $observation$rho_pillar2_tests
+#&gt; [1] 0.1
 #&gt; 
 #&gt; $observation$exp_noise
 #&gt; [1] 1e+06
