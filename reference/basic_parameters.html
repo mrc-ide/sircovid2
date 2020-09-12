@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sircovid2</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.18</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.19</span>
       </span>
     </div>
 
@@ -126,12 +126,12 @@
     </div>
 
     <pre class="usage"><span class='fu'>basic_parameters</span>(
-  <span class='no'>start_date</span>,
-  <span class='no'>region</span>,
-  <span class='kw'>beta_date</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>beta_value</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>severity</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>exp_noise</span> <span class='kw'>=</span> <span class='fl'>1e+06</span>
+  <span class='kw'>start_date</span>,
+  <span class='kw'>region</span>,
+  beta_date = <span class='kw'>NULL</span>,
+  beta_value = <span class='kw'>NULL</span>,
+  severity = <span class='kw'>NULL</span>,
+  exp_noise = <span class='fl'>1e+06</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -195,7 +195,8 @@ within the odin code, though some are also used in processing
 just before the model is run.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>basic_parameters</span>(<span class='fu'><a href='sircovid_date.html'>sircovid_date</a></span>(<span class='st'>"2020-02-01"</span>), <span class='st'>"uk"</span>)</div><div class='output co'>#&gt; $hosp_transmission
+    <pre class="examples"><div class='input'><span class='fu'>basic_parameters</span>(<span class='fu'><a href='sircovid_date.html'>sircovid_date</a></span>(<span class='st'>"2020-02-01"</span>), <span class='st'>"uk"</span>)
+</div><div class='output co'>#&gt; $hosp_transmission
 #&gt; [1] 0.1
 #&gt; 
 #&gt; $ICU_transmission
@@ -434,7 +435,7 @@ just before the model is run.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

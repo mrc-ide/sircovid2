@@ -81,7 +81,7 @@ sircovid models." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sircovid2</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.18</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.19</span>
       </span>
     </div>
 
@@ -127,7 +127,7 @@ sircovid models." />
 sircovid models.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>sircovid_parameters_beta</span>(<span class='no'>date</span>, <span class='no'>value</span>, <span class='no'>dt</span>)</pre>
+    <pre class="usage"><span class='fu'>sircovid_parameters_beta</span>(<span class='kw'>date</span>, <span class='kw'>value</span>, <span class='kw'>dt</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -166,23 +166,27 @@ be constant.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># If "date" is NULL, then beta is constant and this function is</span>
 <span class='co'># trivial:</span>
-<span class='kw pkg'>sircovid2</span><span class='kw ns'>::</span><span class='fu'>sircovid_parameters_beta</span>(<span class='kw'>NULL</span>, <span class='fl'>0.1</span>, <span class='fl'>0.25</span>)</div><div class='output co'>#&gt; [1] 0.1</div><div class='input'>
-<span class='no'>date</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>sircovid2</span><span class='kw ns'>::</span><span class='fu'><a href='sircovid_date.html'>sircovid_date</a></span>(
+<span class='kw'>sircovid2</span>::<span class='fu'>sircovid_parameters_beta</span>(<span class='kw'>NULL</span>, <span class='fl'>0.1</span>, <span class='fl'>0.25</span>)
+</div><div class='output co'>#&gt; [1] 0.1</div><div class='input'>
+<span class='kw'>date</span> <span class='op'>&lt;-</span> <span class='kw'>sircovid2</span>::<span class='fu'><a href='sircovid_date.html'>sircovid_date</a></span>(
    <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"2020-02-01"</span>, <span class='st'>"2020-02-14"</span>, <span class='st'>"2020-03-15"</span>))
-<span class='no'>value</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>3</span>, <span class='fl'>1</span>, <span class='fl'>2</span>)
-<span class='no'>beta</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>sircovid2</span><span class='kw ns'>::</span><span class='fu'>sircovid_parameters_beta</span>(<span class='no'>date</span>, <span class='no'>value</span>, <span class='fl'>1</span>)
+<span class='kw'>value</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>3</span>, <span class='fl'>1</span>, <span class='fl'>2</span>)
+<span class='kw'>beta</span> <span class='op'>&lt;-</span> <span class='kw'>sircovid2</span>::<span class='fu'>sircovid_parameters_beta</span>(<span class='kw'>date</span>, <span class='kw'>value</span>, <span class='fl'>1</span>)
 
 <span class='co'># The implied time series looks like this:</span>
-<span class='no'>t</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>0</span>, <span class='no'>date</span><span class='kw'>[[</span><span class='fl'>3</span>]])
-<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>t</span>, <span class='no'>beta</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"o"</span>)</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/points.html'>points</a></span>(<span class='no'>date</span>, <span class='no'>value</span>, <span class='kw'>pch</span> <span class='kw'>=</span> <span class='fl'>19</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"red"</span>)</div><div class='img'><img src='sircovid_parameters_beta-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='kw'>t</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>0</span>, <span class='kw'>date</span>[[<span class='fl'>3</span>]])
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>t</span>, <span class='kw'>beta</span>, type = <span class='st'>"o"</span>)
+</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/points.html'>points</a></span>(<span class='kw'>date</span>, <span class='kw'>value</span>, pch = <span class='fl'>19</span>, col = <span class='st'>"red"</span>)
+</div><div class='img'><img src='sircovid_parameters_beta-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># After 2020-03-15, the beta value will be fixed at 2, the value</span>
 <span class='co'># that it reached at that date.</span>
 
 <span class='co'># You can see this using sircovid_parameters_beta_expand</span>
 <span class='co'># If a vector of dates is provided then, it's more complex. We'll</span>
 <span class='co'># use dt of 1 here as it's easier to visualise</span>
-<span class='no'>t</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>100</span>, <span class='kw'>by</span> <span class='kw'>=</span> <span class='fl'>1</span>)
-<span class='kw pkg'>sircovid2</span><span class='kw ns'>::</span><span class='fu'><a href='sircovid_parameters_beta_expand.html'>sircovid_parameters_beta_expand</a></span>(<span class='no'>t</span>, <span class='no'>beta</span>)</div><div class='output co'>#&gt;   [1] 3.000000 3.000000 3.000000 3.000000 3.000000 3.000000 3.000000 3.000000
+<span class='kw'>t</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>100</span>, by = <span class='fl'>1</span>)
+<span class='kw'>sircovid2</span>::<span class='fu'><a href='sircovid_parameters_beta_expand.html'>sircovid_parameters_beta_expand</a></span>(<span class='kw'>t</span>, <span class='kw'>beta</span>)
+</div><div class='output co'>#&gt;   [1] 3.000000 3.000000 3.000000 3.000000 3.000000 3.000000 3.000000 3.000000
 #&gt;   [9] 3.000000 3.000000 3.000000 3.000000 3.000000 3.000000 3.000000 3.000000
 #&gt;  [17] 3.000000 3.000000 3.000000 3.000000 3.000000 3.000000 3.000000 3.000000
 #&gt;  [25] 3.000000 3.000000 3.000000 3.000000 3.000000 3.000000 3.000000 3.000000
@@ -194,12 +198,16 @@ be constant.</p>
 #&gt;  [73] 1.900000 1.933333 1.966667 2.000000 2.000000 2.000000 2.000000 2.000000
 #&gt;  [81] 2.000000 2.000000 2.000000 2.000000 2.000000 2.000000 2.000000 2.000000
 #&gt;  [89] 2.000000 2.000000 2.000000 2.000000 2.000000 2.000000 2.000000 2.000000
-#&gt;  [97] 2.000000 2.000000 2.000000 2.000000 2.000000</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>t</span>, <span class='kw pkg'>sircovid2</span><span class='kw ns'>::</span><span class='fu'><a href='sircovid_parameters_beta_expand.html'>sircovid_parameters_beta_expand</a></span>(<span class='no'>t</span>, <span class='no'>beta</span>), <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"o"</span>)</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/points.html'>points</a></span>(<span class='no'>date</span>, <span class='no'>value</span>, <span class='kw'>pch</span> <span class='kw'>=</span> <span class='fl'>19</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"red"</span>)</div><div class='img'><img src='sircovid_parameters_beta-2.png' alt='' width='700' height='433' /></div><div class='input'>
+#&gt;  [97] 2.000000 2.000000 2.000000 2.000000 2.000000</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>t</span>, <span class='kw'>sircovid2</span>::<span class='fu'><a href='sircovid_parameters_beta_expand.html'>sircovid_parameters_beta_expand</a></span>(<span class='kw'>t</span>, <span class='kw'>beta</span>), type = <span class='st'>"o"</span>)
+</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/points.html'>points</a></span>(<span class='kw'>date</span>, <span class='kw'>value</span>, pch = <span class='fl'>19</span>, col = <span class='st'>"red"</span>)
+</div><div class='img'><img src='sircovid_parameters_beta-2.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># If dt is less than 1, this is scaled, but the pattern of beta</span>
 <span class='co'># change is the same</span>
-<span class='no'>beta</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>sircovid2</span><span class='kw ns'>::</span><span class='fu'>sircovid_parameters_beta</span>(<span class='no'>date</span>, <span class='no'>value</span>, <span class='fl'>0.5</span>)
-<span class='no'>t</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>0</span>, <span class='no'>date</span><span class='kw'>[[</span><span class='fl'>3</span>]], <span class='kw'>by</span> <span class='kw'>=</span> <span class='fl'>0.5</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>t</span>, <span class='no'>beta</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"o"</span>, <span class='kw'>cex</span> <span class='kw'>=</span> <span class='fl'>0.25</span>)</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/points.html'>points</a></span>(<span class='no'>date</span>, <span class='no'>value</span>, <span class='kw'>pch</span> <span class='kw'>=</span> <span class='fl'>19</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"red"</span>)</div><div class='img'><img src='sircovid_parameters_beta-3.png' alt='' width='700' height='433' /></div></pre>
+<span class='kw'>beta</span> <span class='op'>&lt;-</span> <span class='kw'>sircovid2</span>::<span class='fu'>sircovid_parameters_beta</span>(<span class='kw'>date</span>, <span class='kw'>value</span>, <span class='fl'>0.5</span>)
+<span class='kw'>t</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>0</span>, <span class='kw'>date</span>[[<span class='fl'>3</span>]], by = <span class='fl'>0.5</span>)
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>t</span>, <span class='kw'>beta</span>, type = <span class='st'>"o"</span>, cex = <span class='fl'>0.25</span>)
+</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/points.html'>points</a></span>(<span class='kw'>date</span>, <span class='kw'>value</span>, pch = <span class='fl'>19</span>, col = <span class='st'>"red"</span>)
+</div><div class='img'><img src='sircovid_parameters_beta-3.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -215,7 +223,7 @@ be constant.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

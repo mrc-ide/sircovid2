@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sircovid2</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.18</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.19</span>
       </span>
     </div>
 
@@ -126,21 +126,21 @@
     </div>
 
     <pre class="usage"><span class='fu'>carehomes_parameters</span>(
-  <span class='no'>start_date</span>,
-  <span class='no'>region</span>,
-  <span class='kw'>beta_date</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>beta_value</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>severity</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>p_death_carehome</span> <span class='kw'>=</span> <span class='fl'>0.7</span>,
-  <span class='kw'>p_specificity</span> <span class='kw'>=</span> <span class='fl'>0.9</span>,
-  <span class='kw'>progression</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>eps</span> <span class='kw'>=</span> <span class='fl'>0.1</span>,
-  <span class='kw'>C_1</span> <span class='kw'>=</span> <span class='fl'>4e-05</span>,
-  <span class='kw'>C_2</span> <span class='kw'>=</span> <span class='fl'>5e-04</span>,
-  <span class='kw'>pillar2_specificity</span> <span class='kw'>=</span> <span class='fl'>0.99</span>,
-  <span class='kw'>pillar2_sensitivity</span> <span class='kw'>=</span> <span class='fl'>0.99</span>,
-  <span class='kw'>prop_noncovid_sympt</span> <span class='kw'>=</span> <span class='fl'>0.01</span>,
-  <span class='kw'>exp_noise</span> <span class='kw'>=</span> <span class='fl'>1e+06</span>
+  <span class='kw'>start_date</span>,
+  <span class='kw'>region</span>,
+  beta_date = <span class='kw'>NULL</span>,
+  beta_value = <span class='kw'>NULL</span>,
+  severity = <span class='kw'>NULL</span>,
+  p_death_carehome = <span class='fl'>0.7</span>,
+  p_specificity = <span class='fl'>0.9</span>,
+  progression = <span class='kw'>NULL</span>,
+  eps = <span class='fl'>0.1</span>,
+  C_1 = <span class='fl'>4e-05</span>,
+  C_2 = <span class='fl'>5e-04</span>,
+  pillar2_specificity = <span class='fl'>0.99</span>,
+  pillar2_sensitivity = <span class='fl'>0.99</span>,
+  prop_noncovid_sympt = <span class='fl'>0.01</span>,
+  exp_noise = <span class='fl'>1e+06</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -243,7 +243,8 @@ within the odin code, though some are also used in processing
 just before the model is run.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>carehomes_parameters</span>(<span class='fu'><a href='sircovid_date.html'>sircovid_date</a></span>(<span class='st'>"2020-02-01"</span>), <span class='st'>"uk"</span>)</div><div class='output co'>#&gt; $hosp_transmission
+    <pre class="examples"><div class='input'><span class='fu'>carehomes_parameters</span>(<span class='fu'><a href='sircovid_date.html'>sircovid_date</a></span>(<span class='st'>"2020-02-01"</span>), <span class='st'>"uk"</span>)
+</div><div class='output co'>#&gt; $hosp_transmission
 #&gt; [1] 0.1
 #&gt; 
 #&gt; $ICU_transmission
@@ -419,6 +420,12 @@ just before the model is run.</p>
 #&gt; $observation$k_new
 #&gt; [1] 2
 #&gt; 
+#&gt; $observation$phi_new_admitted
+#&gt; [1] 1
+#&gt; 
+#&gt; $observation$k_new_admitted
+#&gt; [1] 2
+#&gt; 
 #&gt; $observation$phi_pillar2_cases
 #&gt; [1] 1
 #&gt; 
@@ -473,6 +480,50 @@ just before the model is run.</p>
 #&gt;  [1] 0.2356449 0.2356449 0.2450545 0.2450545 0.2777233 0.2777233 0.3033047
 #&gt;  [8] 0.3033047 0.3225450 0.3225450 0.3819877 0.3819877 0.4339815 0.4339815
 #&gt; [15] 0.4836359 0.4836359 0.5049071 0.3393986 0.5049071
+#&gt; 
+#&gt; $psi_hosp_ILI
+#&gt;  [1] 0.008647088 0.007368644 0.013085111 0.026755414 0.052710207 0.101447374
+#&gt;  [7] 0.146556549 0.210782695 0.245708497 0.327731957 0.413839119 0.519116224
+#&gt; [13] 0.641025944 0.738044114 0.827125720 1.000000000 0.976120865 0.320257500
+#&gt; [19] 0.976120865
+#&gt; 
+#&gt; $p_hosp_ILI_step
+#&gt; [1] 0.2049303
+#&gt; 
+#&gt; $psi_ICU_hosp
+#&gt;  [1] 0.16360021 0.16360021 0.16360021 0.16360021 0.16360021 0.16360021
+#&gt;  [7] 0.16360021 0.17334653 0.19461564 0.24301727 0.33751521 0.48675845
+#&gt; [13] 0.72894974 1.00000000 0.25133371 0.07512036 0.02311000 0.30427599
+#&gt; [19] 0.02311000
+#&gt; 
+#&gt; $p_ICU_hosp_step
+#&gt; [1] 0.7240447
+#&gt; 
+#&gt; $psi_death_ICU
+#&gt;  [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+#&gt; 
+#&gt; $p_death_ICU_step
+#&gt; [1] 0.5234896
+#&gt; 
+#&gt; $psi_death_hosp_D
+#&gt;  [1] 0.2611893 0.2543846 0.2814790 0.3167383 0.3616246 0.4028795 0.4343604
+#&gt;  [8] 0.4656277 0.4917293 0.5349130 0.6034743 0.6654854 0.7522070 0.8111317
+#&gt; [15] 0.8737583 0.9285184 1.0000000 0.5402367 1.0000000
+#&gt; 
+#&gt; $p_death_hosp_D_step
+#&gt; [1] 0.482
+#&gt; 
+#&gt; $psi_death_comm
+#&gt;  [1] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1
+#&gt; 
+#&gt; $p_death_comm_step
+#&gt; [1] 0.7
+#&gt; 
+#&gt; $psi_admit_conf
+#&gt;  [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+#&gt; 
+#&gt; $p_admit_conf_step
+#&gt; [1] 0.2
 #&gt; 
 #&gt; $s_E
 #&gt; [1] 2
@@ -570,7 +621,7 @@ just before the model is run.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

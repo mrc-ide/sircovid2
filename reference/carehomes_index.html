@@ -81,7 +81,7 @@ conforms to the mcstate interface." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sircovid2</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.18</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.19</span>
       </span>
     </div>
 
@@ -127,7 +127,7 @@ conforms to the mcstate interface." />
 conforms to the mcstate interface.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>carehomes_index</span>(<span class='no'>info</span>)</pre>
+    <pre class="usage"><span class='fu'>carehomes_index</span>(<span class='kw'>info</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -152,9 +152,10 @@ carehome workers and carehome residents respectively) and 17
 "cumulative admission" compartments.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='carehomes_parameters.html'>carehomes_parameters</a></span>(<span class='fu'><a href='sircovid_date.html'>sircovid_date</a></span>(<span class='st'>"2020-02-07"</span>), <span class='st'>"england"</span>)
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='no'>carehomes</span>$<span class='fu'>new</span>(<span class='no'>p</span>, <span class='fl'>0</span>, <span class='fl'>10</span>)
-<span class='fu'>carehomes_index</span>(<span class='no'>mod</span>$<span class='fu'>info</span>())</div><div class='output co'>#&gt; $run
+    <pre class="examples"><div class='input'><span class='kw'>p</span> <span class='op'>&lt;-</span> <span class='fu'><a href='carehomes_parameters.html'>carehomes_parameters</a></span>(<span class='fu'><a href='sircovid_date.html'>sircovid_date</a></span>(<span class='st'>"2020-02-07"</span>), <span class='st'>"england"</span>)
+<span class='kw'>mod</span> <span class='op'>&lt;-</span> <span class='kw'>carehomes</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>p</span>, <span class='fl'>0</span>, <span class='fl'>10</span>)
+<span class='fu'>carehomes_index</span>(<span class='kw'>mod</span><span class='op'>$</span><span class='fu'>info</span>())
+</div><div class='output co'>#&gt; $run
 #&gt;           icu       general   deaths_comm   deaths_hosp      admitted 
 #&gt;             7             8            11            10             3 
 #&gt;           new sero_prob_pos   sympt_cases 
@@ -197,7 +198,7 @@ carehome workers and carehome residents respectively) and 17
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

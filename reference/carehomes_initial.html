@@ -81,7 +81,7 @@ interface required for mcstate" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sircovid2</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.18</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.19</span>
       </span>
     </div>
 
@@ -127,7 +127,7 @@ interface required for mcstate" />
 interface required for mcstate</p>
     </div>
 
-    <pre class="usage"><span class='fu'>carehomes_initial</span>(<span class='no'>info</span>, <span class='no'>n_particles</span>, <span class='no'>pars</span>)</pre>
+    <pre class="usage"><span class='fu'>carehomes_initial</span>(<span class='kw'>info</span>, <span class='kw'>n_particles</span>, <span class='kw'>pars</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -156,9 +156,10 @@ elements.</p></td>
     <p>A numeric vector of initial conditions</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='carehomes_parameters.html'>carehomes_parameters</a></span>(<span class='fu'><a href='sircovid_date.html'>sircovid_date</a></span>(<span class='st'>"2020-02-07"</span>), <span class='st'>"england"</span>)
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='no'>carehomes</span>$<span class='fu'>new</span>(<span class='no'>p</span>, <span class='fl'>0</span>, <span class='fl'>10</span>)
-<span class='fu'>carehomes_initial</span>(<span class='no'>mod</span>$<span class='fu'>info</span>(), <span class='fl'>10</span>, <span class='no'>p</span>)</div><div class='output co'>#&gt; $state
+    <pre class="examples"><div class='input'><span class='kw'>p</span> <span class='op'>&lt;-</span> <span class='fu'><a href='carehomes_parameters.html'>carehomes_parameters</a></span>(<span class='fu'><a href='sircovid_date.html'>sircovid_date</a></span>(<span class='st'>"2020-02-07"</span>), <span class='st'>"england"</span>)
+<span class='kw'>mod</span> <span class='op'>&lt;-</span> <span class='kw'>carehomes</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>p</span>, <span class='fl'>0</span>, <span class='fl'>10</span>)
+<span class='fu'>carehomes_initial</span>(<span class='kw'>mod</span><span class='op'>$</span><span class='fu'>info</span>(), <span class='fl'>10</span>, <span class='kw'>p</span>)
+</div><div class='output co'>#&gt; $state
 #&gt;   [1]        0        0        0        0        0 56286958        0        0
 #&gt;   [9]        0        0        0        0        0        0  3299637  3538206
 #&gt;  [17]  3354246  3090222  3487863  3757132  3763601  3690155  3374529  3672532
@@ -292,7 +293,7 @@ elements.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

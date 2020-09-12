@@ -81,7 +81,7 @@ conforms to the mcstate interface." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sircovid2</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.18</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.19</span>
       </span>
     </div>
 
@@ -127,7 +127,7 @@ conforms to the mcstate interface." />
 conforms to the mcstate interface.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>basic_compare</span>(<span class='no'>state</span>, <span class='no'>prev_state</span>, <span class='no'>observed</span>, <span class='no'>pars</span>)</pre>
+    <pre class="usage"><span class='fu'>basic_compare</span>(<span class='kw'>state</span>, <span class='kw'>prev_state</span>, <span class='kw'>observed</span>, <span class='kw'>pars</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -162,11 +162,13 @@ deaths over this day).</p></td>
 of particles (the number of columns in the modelled state)</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>state</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>rbind</a></span>(<span class='kw'>icu</span> <span class='kw'>=</span> <span class='fl'>10</span>:<span class='fl'>15</span>, <span class='kw'>deaths</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>6</span>)
-<span class='no'>prev_state</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>6</span>, <span class='kw'>dimnames</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/dimnames.html'>dimnames</a></span>(<span class='no'>state</span>))
-<span class='no'>observed</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>icu</span> <span class='kw'>=</span> <span class='fl'>13</span>, <span class='kw'>deaths</span> <span class='kw'>=</span> <span class='fl'>3</span>)
-<span class='no'>pars</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='basic_parameters.html'>basic_parameters</a></span>(<span class='fu'><a href='sircovid_date.html'>sircovid_date</a></span>(<span class='st'>"2020-02-07"</span>), <span class='st'>"england"</span>)
-<span class='fu'>basic_compare</span>(<span class='no'>state</span>, <span class='no'>prev_state</span>, <span class='no'>observed</span>, <span class='no'>pars</span>)</div><div class='output co'>#&gt; [1] -47.303412  -6.147741  -5.399510  -5.237661  -5.252074  -5.336899</div><div class='input'><span class='fu'>basic_compare</span>(<span class='no'>state</span> * <span class='fl'>5</span>, <span class='no'>prev_state</span>, <span class='no'>observed</span>, <span class='no'>pars</span>)</div><div class='output co'>#&gt; [1] -6.315318 -6.974462 -7.622200 -8.171863 -8.644335 -9.058637</div></pre>
+    <pre class="examples"><div class='input'><span class='kw'>state</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>rbind</a></span>(icu = <span class='fl'>10</span><span class='op'>:</span><span class='fl'>15</span>, deaths = <span class='fl'>1</span><span class='op'>:</span><span class='fl'>6</span>)
+<span class='kw'>prev_state</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>6</span>, dimnames = <span class='fu'><a href='https://rdrr.io/r/base/dimnames.html'>dimnames</a></span>(<span class='kw'>state</span>))
+<span class='kw'>observed</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(icu = <span class='fl'>13</span>, deaths = <span class='fl'>3</span>)
+<span class='kw'>pars</span> <span class='op'>&lt;-</span> <span class='fu'><a href='basic_parameters.html'>basic_parameters</a></span>(<span class='fu'><a href='sircovid_date.html'>sircovid_date</a></span>(<span class='st'>"2020-02-07"</span>), <span class='st'>"england"</span>)
+<span class='fu'>basic_compare</span>(<span class='kw'>state</span>, <span class='kw'>prev_state</span>, <span class='kw'>observed</span>, <span class='kw'>pars</span>)
+</div><div class='output co'>#&gt; [1] -47.303412  -6.147741  -5.399510  -5.237661  -5.252074  -5.336899</div><div class='input'><span class='fu'>basic_compare</span>(<span class='kw'>state</span> <span class='op'>*</span> <span class='fl'>5</span>, <span class='kw'>prev_state</span>, <span class='kw'>observed</span>, <span class='kw'>pars</span>)
+</div><div class='output co'>#&gt; [1] -6.315318 -6.974462 -7.622200 -8.171863 -8.644335 -9.058637</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -182,7 +184,7 @@ of particles (the number of columns in the modelled state)</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

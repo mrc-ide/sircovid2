@@ -85,7 +85,7 @@ The &quot;basic&quot; sircovid model. This is a dust model." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sircovid2</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.18</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.19</span>
       </span>
     </div>
 
@@ -139,23 +139,26 @@ The "basic" sircovid model. This is a dust model.</h1>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Set up the basic model for England with default parameters and</span>
 <span class='co'># an initial seeding of early February:</span>
-<span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='basic_parameters.html'>basic_parameters</a></span>(<span class='fu'><a href='sircovid_date.html'>sircovid_date</a></span>(<span class='st'>"2020-02-07"</span>), <span class='st'>"england"</span>)
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='no'>basic</span>$<span class='fu'>new</span>(<span class='no'>p</span>, <span class='fl'>0</span>, <span class='fl'>10</span>)
+<span class='kw'>p</span> <span class='op'>&lt;-</span> <span class='fu'><a href='basic_parameters.html'>basic_parameters</a></span>(<span class='fu'><a href='sircovid_date.html'>sircovid_date</a></span>(<span class='st'>"2020-02-07"</span>), <span class='st'>"england"</span>)
+<span class='kw'>mod</span> <span class='op'>&lt;-</span> <span class='kw'>basic</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>p</span>, <span class='fl'>0</span>, <span class='fl'>10</span>)
 
 <span class='co'># Set the initial state and index as we would us for a run</span>
 <span class='co'># (without setting an initial state there is no seeding)</span>
-<span class='no'>initial</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='basic_initial.html'>basic_initial</a></span>(<span class='no'>mod</span>$<span class='fu'>info</span>(), <span class='fl'>10</span>, <span class='no'>p</span>)
-<span class='no'>mod</span>$<span class='fu'>set_state</span>(<span class='no'>initial</span>$<span class='no'>state</span>, <span class='no'>initial</span>$<span class='no'>step</span>)</div><div class='output co'>#&gt; NULL</div><div class='input'><span class='no'>mod</span>$<span class='fu'>set_index</span>(<span class='fu'><a href='basic_index.html'>basic_index</a></span>(<span class='no'>mod</span>$<span class='fu'>info</span>())$<span class='no'>run</span>)
+<span class='kw'>initial</span> <span class='op'>&lt;-</span> <span class='fu'><a href='basic_initial.html'>basic_initial</a></span>(<span class='kw'>mod</span><span class='op'>$</span><span class='fu'>info</span>(), <span class='fl'>10</span>, <span class='kw'>p</span>)
+<span class='kw'>mod</span><span class='op'>$</span><span class='fu'>set_state</span>(<span class='kw'>initial</span><span class='op'>$</span><span class='kw'>state</span>, <span class='kw'>initial</span><span class='op'>$</span><span class='kw'>step</span>)
+</div><div class='output co'>#&gt; NULL</div><div class='input'><span class='kw'>mod</span><span class='op'>$</span><span class='fu'>set_index</span>(<span class='fu'><a href='basic_index.html'>basic_index</a></span>(<span class='kw'>mod</span><span class='op'>$</span><span class='fu'>info</span>())<span class='op'>$</span><span class='kw'>run</span>)
 
 <span class='co'># Run the model up to the end of march</span>
-<span class='no'>step_end</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='sircovid_date.html'>sircovid_date</a></span>(<span class='st'>"2020-03-31"</span>) / <span class='no'>p</span>$<span class='no'>dt</span>
+<span class='kw'>step_end</span> <span class='op'>&lt;-</span> <span class='fu'><a href='sircovid_date.html'>sircovid_date</a></span>(<span class='st'>"2020-03-31"</span>) <span class='op'>/</span> <span class='kw'>p</span><span class='op'>$</span><span class='kw'>dt</span>
 
 <span class='co'># The filtered state is returned at the end of the run</span>
-<span class='no'>mod</span>$<span class='fu'>run</span>(<span class='no'>step_end</span>)</div><div class='output co'>#&gt;        [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+<span class='kw'>mod</span><span class='op'>$</span><span class='fu'>run</span>(<span class='kw'>step_end</span>)
+</div><div class='output co'>#&gt;        [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
 #&gt; icu      29   15   18   25   21   32   12   13   17    11
 #&gt; deaths  120   33   63   57   71  109   44   26   74    48</div><div class='input'>
 <span class='co'># More state can be retrieved using the "state" method</span>
-<span class='no'>mod</span>$<span class='fu'><a href='https://rdrr.io/r/datasets/state.html'>state</a></span>(<span class='fl'>1</span>:<span class='fl'>6</span>)</div><div class='output co'>#&gt;             [,1]        [,2]        [,3]        [,4]        [,5]        [,6]
+<span class='kw'>mod</span><span class='op'>$</span><span class='fu'><a href='https://rdrr.io/r/datasets/state.html'>state</a></span>(<span class='fl'>1</span><span class='op'>:</span><span class='fl'>6</span>)
+</div><div class='output co'>#&gt;             [,1]        [,2]        [,3]        [,4]        [,5]        [,6]
 #&gt; [1,]       91.00       91.00       91.00       91.00       91.00       91.00
 #&gt; [2,] 56286961.00 56286961.00 56286961.00 56286961.00 56286961.00 56286961.00
 #&gt; [3,]       29.00       15.00       18.00       25.00       21.00       32.00
@@ -184,7 +187,7 @@ The "basic" sircovid model. This is a dust model.</h1>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
