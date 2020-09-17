@@ -10,7 +10,7 @@ test_that("can run the carehomes model", {
 
   mod$set_index(carehomes_index(mod$info())$run)
   res <- mod$run(end)
-
+saveRDS(res,"res.rds")
   expected <- rbind(
     icu = c(8, 8, 3, 18, 6),
     general = c(52, 67, 20, 67, 19),
@@ -18,8 +18,8 @@ test_that("can run the carehomes model", {
     deaths_hosp = c(305649, 305638, 305740, 306023, 306163),
     admitted = c(151360, 150612, 151197, 151101, 150386),
     new = c(484244, 483918, 483997, 484935, 484355),
-    sero_prob_pos = c(0.723860522215455, 0.723923883973212, 0.724058180618437,
-                 0.723865988088634, 0.723862084297041),
+    sero_prob_pos = c(0.7393342623, 0.7393961156, 0.7395169242,
+                      0.7393339826, 0.7393328386),
     sympt_cases = c(30885159, 30883639, 30887886, 30874524, 30871135))
   expect_equal(res, expected)
 })
