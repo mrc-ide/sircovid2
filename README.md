@@ -1,5 +1,7 @@
 # sircovid2 <img src='man/figures/logo.png' align="right" height="138.5" />
 
+**NOTE**: This was the development version of sircovid, used during a refactor as we ported to use dust/mcstate and merged in [here](https://github.com/mrc-ide/sircovid/commit/1ff46c2). Development has now moved back to [the main sircovid repository](https://github.com/mrc-ide/sircovid) and this repository is archived.
+
 <!-- badges: start -->
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 [![R build status](https://github.com/mrc-ide/sircovid2/workflows/R-CMD-check/badge.svg)](https://github.com/mrc-ide/sircovid2/actions)
